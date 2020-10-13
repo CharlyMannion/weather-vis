@@ -7,8 +7,8 @@ import WeatherDisplayer from './WeatherDisplayer'
 
 class App extends React.Component {
     state = {
-        weather: [],
-        currentCity: 'York'
+        weather: {},
+        currentCity: 'Upper Poppleton'
     };
 
     componentDidMount() {
@@ -17,12 +17,12 @@ class App extends React.Component {
             `https://api.openweathermap.org/data/2.5/weather?q=${this.state.currentCity}&appid=${apiKey}`
         )
         .then((res) => {
-            console.log(res, 'res');
-
             return res.json();
         })
-        .then((info) => {
-            console.log(info);
+        .then((items) => {
+            console.log(items, "ITEMS");
+            console.log(items.weather[0].main, "ITEMS WEATHER[0] MAIN");
+            this.setState({ weather: items})
         });
     };
 
@@ -32,8 +32,7 @@ class App extends React.Component {
             <div className = "App">
                 <Header />
                 <WeatherGetter />
-                <WeatherDisplayer />
-
+                <WeatherDisplayer weatherData={this.state.weather}/>
             </div>
         )
     }
