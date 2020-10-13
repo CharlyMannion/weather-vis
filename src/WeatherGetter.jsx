@@ -1,7 +1,9 @@
 import React from 'react';
 
 class WeatherGetter extends React.Component {
-    // state={}
+    // state={
+    //     current-city: ''
+    // }
 
     render() {
         return (

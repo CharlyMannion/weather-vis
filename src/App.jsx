@@ -7,13 +7,14 @@ import WeatherDisplayer from './WeatherDisplayer'
 
 class App extends React.Component {
     state = {
-        weather: []
+        weather: [],
+        currentCity: 'York'
     };
 
     componentDidMount() {
         console.log('mounting');
         fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=York&appid=${apiKey}`
+            `https://api.openweathermap.org/data/2.5/weather?q=${this.state.currentCity}&appid=${apiKey}`
         )
         .then((res) => {
             console.log(res, 'res');
