@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 import apiKey from './apiKey'
+import Header from './Header'
+import WeatherGetter from './WeatherGetter'
+import WeatherDisplayer from './WeatherDisplayer'
 
 class App extends React.Component {
     state = {
@@ -26,7 +29,10 @@ class App extends React.Component {
         console.log('rendering');
         return (
             <div className = "App">
-                Some stuff about weather
+                <Header />
+                <WeatherGetter />
+                <WeatherDisplayer />
+
             </div>
         )
     }
